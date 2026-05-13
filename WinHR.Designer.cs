@@ -42,12 +42,16 @@
             TOutput1 = new RichTextBox();
             MDView = new Microsoft.Web.WebView2.WinForms.WebView2();
             TOutput0 = new RichTextBox();
+            TlpR1 = new TableLayoutPanel();
+            BSaveView = new Button();
+            LViewSource = new Label();
             TlpMain.SuspendLayout();
             TlpR0.SuspendLayout();
             TlpR0C1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
             TlpR2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MDView).BeginInit();
+            TlpR1.SuspendLayout();
             SuspendLayout();
             // 
             // TlpMain
@@ -57,6 +61,7 @@
             TlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             TlpMain.Controls.Add(TlpR0, 0, 0);
             TlpMain.Controls.Add(TlpR2, 0, 2);
+            TlpMain.Controls.Add(TlpR1, 0, 1);
             TlpMain.Dock = DockStyle.Fill;
             TlpMain.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TlpMain.Location = new Point(0, 0);
@@ -102,6 +107,7 @@
             TInput.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             TInput.Size = new Size(938, 204);
             TInput.TabIndex = 0;
+            TInput.Tag = "Inputs";
             TInput.Text = "";
             TInput.TextChanged += TInput_TextChanged;
             TInput.Enter += T_Enter;
@@ -116,6 +122,7 @@
             TlpR0C1.Controls.Add(LInputInfo, 0, 0);
             TlpR0C1.Controls.Add(BInputLint, 1, 1);
             TlpR0C1.Dock = DockStyle.Fill;
+            TlpR0C1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TlpR0C1.Location = new Point(1343, 1);
             TlpR0C1.Margin = new Padding(0);
             TlpR0C1.Name = "TlpR0C1";
@@ -161,7 +168,7 @@
             BInputLint.Name = "BInputLint";
             BInputLint.Size = new Size(110, 33);
             BInputLint.TabIndex = 3;
-            BInputLint.Text = "Lint Inputs";
+            BInputLint.Text = "&Lint Inputs";
             BInputLint.UseVisualStyleBackColor = true;
             BInputLint.Click += BInputLint_Click;
             // 
@@ -190,6 +197,7 @@
             TlpR2.Controls.Add(MDView, 3, 0);
             TlpR2.Controls.Add(TOutput0, 0, 0);
             TlpR2.Dock = DockStyle.Fill;
+            TlpR2.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TlpR2.Location = new Point(1, 259);
             TlpR2.Margin = new Padding(0);
             TlpR2.Name = "TlpR2";
@@ -211,6 +219,7 @@
             TOutput2.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             TOutput2.Size = new Size(307, 591);
             TOutput2.TabIndex = 3;
+            TOutput2.Tag = "Output (Right)";
             TOutput2.Text = "";
             TOutput2.TextChanged += T_TextChanged;
             TOutput2.Enter += T_Enter;
@@ -228,6 +237,7 @@
             TOutput1.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             TOutput1.Size = new Size(307, 591);
             TOutput1.TabIndex = 2;
+            TOutput1.Tag = "Output (Middle)";
             TOutput1.Text = "";
             TOutput1.TextChanged += T_TextChanged;
             TOutput1.Enter += T_Enter;
@@ -258,19 +268,76 @@
             TOutput0.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             TOutput0.Size = new Size(307, 591);
             TOutput0.TabIndex = 1;
+            TOutput0.Tag = "Output (Left)";
             TOutput0.Text = "";
             TOutput0.TextChanged += T_TextChanged;
             TOutput0.Enter += T_Enter;
+            // 
+            // TlpR1
+            // 
+            TlpR1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            TlpR1.ColumnCount = 10;
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.Controls.Add(BSaveView, 8, 0);
+            TlpR1.Controls.Add(LViewSource, 9, 1);
+            TlpR1.Dock = DockStyle.Fill;
+            TlpR1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
+            TlpR1.Location = new Point(1, 216);
+            TlpR1.Margin = new Padding(0);
+            TlpR1.Name = "TlpR1";
+            TlpR1.RowCount = 2;
+            TlpR1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            TlpR1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            TlpR1.Size = new Size(1582, 42);
+            TlpR1.TabIndex = 2;
+            // 
+            // BSaveView
+            // 
+            BSaveView.Dock = DockStyle.Fill;
+            BSaveView.Location = new Point(1269, 5);
+            BSaveView.Margin = new Padding(4);
+            BSaveView.Name = "BSaveView";
+            TlpR1.SetRowSpan(BSaveView, 2);
+            BSaveView.Size = new Size(149, 32);
+            BSaveView.TabIndex = 4;
+            BSaveView.Text = "&Save As HTML";
+            BSaveView.UseVisualStyleBackColor = true;
+            BSaveView.Click += BSaveView_Click;
+            // 
+            // LViewSource
+            // 
+            LViewSource.AutoSize = true;
+            LViewSource.BackColor = Color.LightSteelBlue;
+            LViewSource.Dock = DockStyle.Fill;
+            LViewSource.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            LViewSource.Location = new Point(1423, 21);
+            LViewSource.Margin = new Padding(0);
+            LViewSource.Name = "LViewSource";
+            LViewSource.Size = new Size(158, 20);
+            LViewSource.TabIndex = 0;
+            LViewSource.Text = "View: Inputs";
+            LViewSource.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // WinHR
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoValidate = AutoValidate.Disable;
+            BackColor = Color.Ivory;
             CausesValidation = false;
             ClientSize = new Size(1584, 861);
             Controls.Add(TlpMain);
             DoubleBuffered = true;
             Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
@@ -283,6 +350,8 @@
             ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
             TlpR2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)MDView).EndInit();
+            TlpR1.ResumeLayout(false);
+            TlpR1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -301,5 +370,8 @@
         private RichTextBox TOutput2;
         private RichTextBox TOutput1;
         private RichTextBox TOutput0;
+        private TableLayoutPanel TlpR1;
+        private Label LViewSource;
+        private Button BSaveView;
     }
 }

@@ -22,7 +22,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: "[STEP] Run Worker (Check) via Command"
-        id: worker-Check
+        id: worker-check
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
