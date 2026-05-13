@@ -70,7 +70,7 @@ jobs:
         shell: bash
         run: gh release delete ${{ steps.worker-info.outputs.tag }} --yes --cleanup-tag 2>/dev/null || echo ""
         env:
-          GH_TOKEN: ${{ GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: "[STEP] Create New Release via Action"
         id: create
