@@ -23,10 +23,12 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Include=".github\workflows\daily-release.yml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="1.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.VsixColorCompiler" Version="17.0.31709.430" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3967.48" />
   </ItemGroup>
 
