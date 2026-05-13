@@ -1,8 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Markdig;
 using Markdig.Renderers.Normalize;
 using Markdig.Syntax;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace HyRsn
 {
@@ -11,6 +13,8 @@ namespace HyRsn
         internal static class Static
         {
             private static readonly String ENL = Environment.NewLine, SEP = String.Empty;
+            private const MessageBoxButtons MBBO = MessageBoxButtons.OK;
+            private const MessageBoxIcon MBII = MessageBoxIcon.Information, MBIE = MessageBoxIcon.Error;
             private static Boolean NullBox(RichTextBox T) => String.IsNullOrEmpty(T.Text);
             internal static void CountInput1(RichTextBox T, Label L) => L.Text =
                 $"Lines: {(NullBox(T) ? 0 : T.Lines.Length)}\r\n" +
@@ -65,6 +69,21 @@ namespace HyRsn
             internal static String ViewCode(String MDCode) => $@"
 <!DOCTYPE html><html><head><meta charset='UTF-8'>
 {CssCode}</head><body>{Markdown.ToHtml(MDCode, MDPL)}</body></html>";                
+
+
+            internal async static Task<String> ToHtml(WebView2 V)
+            {
+                String RawHtml = await V.CoreWebView2.ExecuteScriptAsync("document.documentElement.outerHTML");
+                return JsonSerializer.Deserialize<String>(RawHtml) ?? String.Empty;                
+            }
+            internal static void SaveMsg(String FileName, RichTextBox T, String Ex = "Null") =>
+                MessageBox.Show(
+                    Ex == "Null" ?
+                    $"Saved {T.Tag} successfully!\r\n{FileName}" :
+                    $"Error Saving {T.Tag} Error!\r\n{FileName}\r\n{Ex}",
+                    Ex == "Null" ? "Save Successful" : "Save Error", MBBO,
+                    Ex == "Null" ? MBII : MBIE
+                    );
             
 
 

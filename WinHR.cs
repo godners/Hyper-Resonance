@@ -69,18 +69,11 @@ namespace HyRsn
             {
                 try
                 {
-                    String RawHtml = await MDView.CoreWebView2.
-                        ExecuteScriptAsync("document.documentElement.outerHTML");
-                    String LintHtml = JsonSerializer.Deserialize<String>(RawHtml) ?? String.Empty;
-                    await File.WriteAllTextAsync(SFD.FileName, LintHtml, UTF8);
-                    MessageBox.Show($"Saved {TFocus.Tag} successfully!\r\n" +
-                        $"{SFD.FileName}", "Save Successful", MBBO, MBII);
+                    String HtmlCode = await Static.ToHtml(MDView);
+                    await File.WriteAllTextAsync(SFD.FileName, HtmlCode, UTF8);
+                    Static.SaveMsg(SFD.FileName, TFocus);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error Saving {TFocus.Tag}:\r\n" +
-                        $"{SFD.FileName} {ex.Message}", "Save Error", MBBO, MBIE);
-                }
+                catch (Exception ex) { Static.SaveMsg(SFD.FileName, TFocus, ex.Message); }
             }
         }
     }

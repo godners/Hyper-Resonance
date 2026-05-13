@@ -45,6 +45,9 @@
             TlpR1 = new TableLayoutPanel();
             BSaveView = new Button();
             LViewSource = new Label();
+            LOutput0Name = new Label();
+            LOutput1Name = new Label();
+            LOutput2Name = new Label();
             TlpMain.SuspendLayout();
             TlpR0.SuspendLayout();
             TlpR0C1.SuspendLayout();
@@ -150,6 +153,7 @@
             // 
             // LInputInfo
             // 
+            LInputInfo.BackColor = Color.LightSteelBlue;
             TlpR0C1.SetColumnSpan(LInputInfo, 2);
             LInputInfo.Dock = DockStyle.Fill;
             LInputInfo.Location = new Point(1, 1);
@@ -157,7 +161,7 @@
             LInputInfo.Name = "LInputInfo";
             LInputInfo.Size = new Size(236, 20);
             LInputInfo.TabIndex = 1;
-            LInputInfo.Text = "Input Information:";
+            LInputInfo.Text = "(Markdown) Inputs";
             LInputInfo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // BInputLint
@@ -287,6 +291,9 @@
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.Controls.Add(LOutput2Name, 5, 1);
+            TlpR1.Controls.Add(LOutput1Name, 3, 1);
+            TlpR1.Controls.Add(LOutput0Name, 1, 1);
             TlpR1.Controls.Add(BSaveView, 8, 0);
             TlpR1.Controls.Add(LViewSource, 9, 1);
             TlpR1.Dock = DockStyle.Fill;
@@ -326,6 +333,48 @@
             LViewSource.TabIndex = 0;
             LViewSource.Text = "View: Inputs";
             LViewSource.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LOutput0Name
+            // 
+            LOutput0Name.AutoSize = true;
+            LOutput0Name.BackColor = Color.LightSteelBlue;
+            LOutput0Name.Dock = DockStyle.Fill;
+            LOutput0Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            LOutput0Name.Location = new Point(159, 21);
+            LOutput0Name.Margin = new Padding(0);
+            LOutput0Name.Name = "LOutput0Name";
+            LOutput0Name.Size = new Size(157, 20);
+            LOutput0Name.TabIndex = 5;
+            LOutput0Name.Text = "(Markdown) Output Left";
+            LOutput0Name.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LOutput1Name
+            // 
+            LOutput1Name.AutoSize = true;
+            LOutput1Name.BackColor = Color.LightSteelBlue;
+            LOutput1Name.Dock = DockStyle.Fill;
+            LOutput1Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            LOutput1Name.Location = new Point(475, 21);
+            LOutput1Name.Margin = new Padding(0);
+            LOutput1Name.Name = "LOutput1Name";
+            LOutput1Name.Size = new Size(157, 20);
+            LOutput1Name.TabIndex = 6;
+            LOutput1Name.Text = "(Markdown) Output Middle";
+            LOutput1Name.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // LOutput2Name
+            // 
+            LOutput2Name.AutoSize = true;
+            LOutput2Name.BackColor = Color.LightSteelBlue;
+            LOutput2Name.Dock = DockStyle.Fill;
+            LOutput2Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            LOutput2Name.Location = new Point(791, 21);
+            LOutput2Name.Margin = new Padding(0);
+            LOutput2Name.Name = "LOutput2Name";
+            LOutput2Name.Size = new Size(157, 20);
+            LOutput2Name.TabIndex = 7;
+            LOutput2Name.Text = "(Markdown) Output Right";
+            LOutput2Name.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // WinHR
             // 
@@ -373,5 +422,8 @@
         private TableLayoutPanel TlpR1;
         private Label LViewSource;
         private Button BSaveView;
+        private Label LOutput2Name;
+        private Label LOutput1Name;
+        private Label LOutput0Name;
     }
 }
