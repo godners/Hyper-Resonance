@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "OpenRouter",
+    "ApiKey": "YOUR_OPENROUTER_API_KEY",
+    "EndPoint": "https://openrouter.ai/api/v1",
+    "Model": "inclusionAI:ring-2.6-1t:free",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "Ring Style",
+        "Fore": "#FFD700",
+        "Back": "#2F4F4F"
+    }
+}

@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "DeepSeek",
+    "ApiKey": "YOUR_DEEPSEEK_API_KEY",
+    "EndPoint": "https://api.deepseek.com/v1",
+    "Model": "deepseek-v4-flash",
+    "Proxy": "http://10.80.239.10:8080/",
+    "History": [],
+    "Style": {
+        "Name": "DeepSeek Flash",
+        "Fore": "#000000",
+        "Back": "#E0FFFF"
+  }
+}

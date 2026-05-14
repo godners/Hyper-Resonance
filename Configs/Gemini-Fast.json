@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "Google",
+    "ApiKey": "YOUR_GOOGLE_API_KEY",
+    "EndPoint": "https://generativelanguage.googleapis.com/v1beta",
+    "Model": "gemini-3-flash",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "Gemini Fast",
+        "Fore": "#4169E1",
+        "Back": "#FFFFFF"
+    }
+}

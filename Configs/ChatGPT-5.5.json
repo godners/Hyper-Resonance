@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "OpenAI",
+    "ApiKey": "YOUR_OPENAI_API_KEY",
+    "EndPoint": "https://api.openai.com/v1",
+    "Model": "gpt-5.5",
+    "Proxy": "http://192.168.109.5:8080",
+    "History": [],
+    "Style": {
+        "Name": "ChatGPT Style",
+        "Fore": "#FFFFFF",
+        "Back": "#006400"
+    }
+}

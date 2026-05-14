@@ -12,6 +12,7 @@
     <Title>$(AssemblyName)</Title>
     <Authors>RenTY Code</Authors>
     <PackageIcon>HyRsn.jpg</PackageIcon>
+    <NoWarn>$(NoWarn);MSB3277</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

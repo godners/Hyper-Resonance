@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "Google",
+    "ApiKey": "YOUR_GOOGLE_API_KEY",
+    "EndPoint": "https://generativelanguage.googleapis.com/v1beta",
+    "Model": "gemini-3-pro-thought",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "Gemini Thinker",
+        "Fore": "#483D8B",
+        "Back": "#FFFFF0"
+    }
+}

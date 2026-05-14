@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "MiniMax",
+    "ApiKey": "YOUR_MINIMAX_API_KEY",
+    "EndPoint": "https://api.minimax.chat/v1",
+    "Model": "m2-her",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "MiniMax Talking",
+        "Fore": "#FFFFFF",
+        "Back": "#FF4500"
+    }
+}

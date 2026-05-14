@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "OpenRouter",
+    "ApiKey": "YOUR_OPENROUTER_API_KEY",
+    "EndPoint": "https://openrouter.ai/api/v1",
+    "Model": "deepseek/deepseek-v4-flash:free",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "OR DeepSeek",
+        "Fore": "#00BFFF",
+        "Back": "#F8F8FF"
+    }
+}

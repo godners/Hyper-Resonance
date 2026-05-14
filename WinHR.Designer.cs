@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WinHR));
             TlpMain = new TableLayoutPanel();
             TlpR0 = new TableLayoutPanel();
             TInput = new RichTextBox();
@@ -43,11 +42,11 @@
             MDView = new Microsoft.Web.WebView2.WinForms.WebView2();
             TOutput0 = new RichTextBox();
             TlpR1 = new TableLayoutPanel();
+            BSelect2 = new Button();
+            BSelect1 = new Button();
             BSaveView = new Button();
             LViewSource = new Label();
-            LOutput0Name = new Label();
-            LOutput1Name = new Label();
-            LOutput2Name = new Label();
+            BSelect0 = new Button();
             TlpMain.SuspendLayout();
             TlpR0.SuspendLayout();
             TlpR0C1.SuspendLayout();
@@ -291,11 +290,11 @@
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            TlpR1.Controls.Add(LOutput2Name, 5, 1);
-            TlpR1.Controls.Add(LOutput1Name, 3, 1);
-            TlpR1.Controls.Add(LOutput0Name, 1, 1);
+            TlpR1.Controls.Add(BSelect2, 4, 0);
+            TlpR1.Controls.Add(BSelect1, 2, 0);
             TlpR1.Controls.Add(BSaveView, 8, 0);
             TlpR1.Controls.Add(LViewSource, 9, 1);
+            TlpR1.Controls.Add(BSelect0, 0, 0);
             TlpR1.Dock = DockStyle.Fill;
             TlpR1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TlpR1.Location = new Point(1, 216);
@@ -306,6 +305,36 @@
             TlpR1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             TlpR1.Size = new Size(1582, 42);
             TlpR1.TabIndex = 2;
+            // 
+            // BSelect2
+            // 
+            BSelect2.BackColor = Color.LightSteelBlue;
+            BSelect2.Dock = DockStyle.Fill;
+            BSelect2.FlatStyle = FlatStyle.Popup;
+            BSelect2.Location = new Point(633, 1);
+            BSelect2.Margin = new Padding(0);
+            BSelect2.Name = "BSelect2";
+            BSelect2.Size = new Size(157, 19);
+            BSelect2.TabIndex = 10;
+            BSelect2.Tag = "RIGHT BOX";
+            BSelect2.Text = "&2 Select Model";
+            BSelect2.UseVisualStyleBackColor = false;
+            BSelect2.Click += BSelect_Click;
+            // 
+            // BSelect1
+            // 
+            BSelect1.BackColor = Color.LightSteelBlue;
+            BSelect1.Dock = DockStyle.Fill;
+            BSelect1.FlatStyle = FlatStyle.Popup;
+            BSelect1.Location = new Point(317, 1);
+            BSelect1.Margin = new Padding(0);
+            BSelect1.Name = "BSelect1";
+            BSelect1.Size = new Size(157, 19);
+            BSelect1.TabIndex = 9;
+            BSelect1.Tag = "MIDDLE BOX";
+            BSelect1.Text = "&1 Select Model";
+            BSelect1.UseVisualStyleBackColor = false;
+            BSelect1.Click += BSelect_Click;
             // 
             // BSaveView
             // 
@@ -334,47 +363,20 @@
             LViewSource.Text = "View: Inputs";
             LViewSource.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // LOutput0Name
+            // BSelect0
             // 
-            LOutput0Name.AutoSize = true;
-            LOutput0Name.BackColor = Color.LightSteelBlue;
-            LOutput0Name.Dock = DockStyle.Fill;
-            LOutput0Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            LOutput0Name.Location = new Point(159, 21);
-            LOutput0Name.Margin = new Padding(0);
-            LOutput0Name.Name = "LOutput0Name";
-            LOutput0Name.Size = new Size(157, 20);
-            LOutput0Name.TabIndex = 5;
-            LOutput0Name.Text = "(Markdown) Output Left";
-            LOutput0Name.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // LOutput1Name
-            // 
-            LOutput1Name.AutoSize = true;
-            LOutput1Name.BackColor = Color.LightSteelBlue;
-            LOutput1Name.Dock = DockStyle.Fill;
-            LOutput1Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            LOutput1Name.Location = new Point(475, 21);
-            LOutput1Name.Margin = new Padding(0);
-            LOutput1Name.Name = "LOutput1Name";
-            LOutput1Name.Size = new Size(157, 20);
-            LOutput1Name.TabIndex = 6;
-            LOutput1Name.Text = "(Markdown) Output Middle";
-            LOutput1Name.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // LOutput2Name
-            // 
-            LOutput2Name.AutoSize = true;
-            LOutput2Name.BackColor = Color.LightSteelBlue;
-            LOutput2Name.Dock = DockStyle.Fill;
-            LOutput2Name.Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
-            LOutput2Name.Location = new Point(791, 21);
-            LOutput2Name.Margin = new Padding(0);
-            LOutput2Name.Name = "LOutput2Name";
-            LOutput2Name.Size = new Size(157, 20);
-            LOutput2Name.TabIndex = 7;
-            LOutput2Name.Text = "(Markdown) Output Right";
-            LOutput2Name.TextAlign = ContentAlignment.MiddleCenter;
+            BSelect0.BackColor = Color.LightSteelBlue;
+            BSelect0.Dock = DockStyle.Fill;
+            BSelect0.FlatStyle = FlatStyle.Popup;
+            BSelect0.Location = new Point(1, 1);
+            BSelect0.Margin = new Padding(0);
+            BSelect0.Name = "BSelect0";
+            BSelect0.Size = new Size(157, 19);
+            BSelect0.TabIndex = 8;
+            BSelect0.Tag = "LEFT BOX";
+            BSelect0.Text = "&0 Select Model";
+            BSelect0.UseVisualStyleBackColor = false;
+            BSelect0.Click += BSelect_Click;
             // 
             // WinHR
             // 
@@ -388,7 +390,7 @@
             Font = new Font("仿宋", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
+            Icon = Properties.Resources.HyRsn;
             MaximizeBox = false;
             Name = "WinHR";
             StartPosition = FormStartPosition.CenterScreen;
@@ -422,8 +424,8 @@
         private TableLayoutPanel TlpR1;
         private Label LViewSource;
         private Button BSaveView;
-        private Label LOutput2Name;
-        private Label LOutput1Name;
-        private Label LOutput0Name;
+        private Button BSelect0;
+        private Button BSelect2;
+        private Button BSelect1;
     }
 }
