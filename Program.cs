@@ -4,11 +4,11 @@ namespace HyRsn
     {
         internal static Form FormHR = new WinHR();
         [STAThread]
-        static void Main()
-        {
-            ApplicationConfiguration.Initialize();
+        internal static void Main()
+        {            
+            ApplicationConfiguration.Initialize();            
+            Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.Run(FormHR);
-            
         }
     }
 }

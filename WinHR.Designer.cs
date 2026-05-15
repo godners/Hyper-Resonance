@@ -32,6 +32,8 @@
             TlpR0 = new TableLayoutPanel();
             TInput = new RichTextBox();
             TlpR0C1 = new TableLayoutPanel();
+            BInputRole = new Button();
+            BCompletion = new Button();
             LInputCount = new Label();
             LInputInfo = new Label();
             BInputLint = new Button();
@@ -111,8 +113,9 @@
             TInput.TabIndex = 0;
             TInput.Tag = "Inputs";
             TInput.Text = "";
+            TInput.Click += T_Focus;
             TInput.TextChanged += TInput_TextChanged;
-            TInput.Enter += T_Enter;
+            TInput.Enter += T_Focus;
             // 
             // TlpR0C1
             // 
@@ -120,6 +123,8 @@
             TlpR0C1.ColumnCount = 2;
             TlpR0C1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             TlpR0C1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            TlpR0C1.Controls.Add(BInputRole, 1, 2);
+            TlpR0C1.Controls.Add(BCompletion, 0, 2);
             TlpR0C1.Controls.Add(LInputCount, 0, 1);
             TlpR0C1.Controls.Add(LInputInfo, 0, 0);
             TlpR0C1.Controls.Add(BInputLint, 1, 1);
@@ -138,6 +143,30 @@
             TlpR0C1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             TlpR0C1.Size = new Size(238, 212);
             TlpR0C1.TabIndex = 1;
+            // 
+            // BInputRole
+            // 
+            BInputRole.Dock = DockStyle.Fill;
+            BInputRole.Location = new Point(123, 68);
+            BInputRole.Margin = new Padding(4);
+            BInputRole.Name = "BInputRole";
+            BInputRole.Size = new Size(110, 33);
+            BInputRole.TabIndex = 5;
+            BInputRole.Text = "&Role Prompt";
+            BInputRole.UseVisualStyleBackColor = true;
+            BInputRole.Click += BInputRole_Click;
+            // 
+            // BCompletion
+            // 
+            BCompletion.Dock = DockStyle.Fill;
+            BCompletion.Location = new Point(5, 68);
+            BCompletion.Margin = new Padding(4);
+            BCompletion.Name = "BCompletion";
+            BCompletion.Size = new Size(109, 33);
+            BCompletion.TabIndex = 4;
+            BCompletion.Text = "&Completions";
+            BCompletion.UseVisualStyleBackColor = true;
+            BCompletion.Click += BCompletion_Click;
             // 
             // LInputCount
             // 
@@ -224,8 +253,9 @@
             TOutput2.TabIndex = 3;
             TOutput2.Tag = "Output (Right)";
             TOutput2.Text = "";
-            TOutput2.TextChanged += T_TextChanged;
-            TOutput2.Enter += T_Enter;
+            TOutput2.Click += T_Focus;
+            TOutput2.TextChanged += TOutput_TextChanged;
+            TOutput2.Enter += T_Focus;
             // 
             // TOutput1
             // 
@@ -242,8 +272,9 @@
             TOutput1.TabIndex = 2;
             TOutput1.Tag = "Output (Middle)";
             TOutput1.Text = "";
-            TOutput1.TextChanged += T_TextChanged;
-            TOutput1.Enter += T_Enter;
+            TOutput1.Click += T_Focus;
+            TOutput1.TextChanged += TOutput_TextChanged;
+            TOutput1.Enter += T_Focus;
             // 
             // MDView
             // 
@@ -273,8 +304,9 @@
             TOutput0.TabIndex = 1;
             TOutput0.Tag = "Output (Left)";
             TOutput0.Text = "";
-            TOutput0.TextChanged += T_TextChanged;
-            TOutput0.Enter += T_Enter;
+            TOutput0.Click += T_Focus;
+            TOutput0.TextChanged += TOutput_TextChanged;
+            TOutput0.Enter += T_Focus;
             // 
             // TlpR1
             // 
@@ -427,5 +459,7 @@
         private Button BSelect0;
         private Button BSelect2;
         private Button BSelect1;
+        private Button BCompletion;
+        private Button BInputRole;
     }
 }

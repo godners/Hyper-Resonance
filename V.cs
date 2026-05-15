@@ -8,6 +8,10 @@ namespace HyRsn
     internal static class V
     {
         internal static readonly String ENL = Environment.NewLine, SEP = String.Empty;
+        internal const String HAJ = "application/json", AUTH = "Authorization", ACP = "Accept";
+        internal static readonly HttpMethod HMP = HttpMethod.Post;
+        internal const HttpCompletionOption HCORHR = HttpCompletionOption.ResponseHeadersRead;
+        internal static Boolean SNS(String S) => String.IsNullOrWhiteSpace(S);
         internal const MessageBoxButtons MBBO = MessageBoxButtons.OK;
         internal const MessageBoxIcon MBII = MessageBoxIcon.Information, MBIE = MessageBoxIcon.Error;
         internal const RegexOptions ROM = RegexOptions.Multiline, RON = RegexOptions.None;

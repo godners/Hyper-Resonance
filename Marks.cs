@@ -5,8 +5,8 @@ using Markdig.Syntax;
 
 namespace HyRsn
 {
-    internal partial class WinHR
-    {
+    //internal partial class WinHR
+    //{
         internal static class Marks
         {
             private static readonly Tuple<String, String, RegexOptions>[] MDDict =
@@ -18,7 +18,7 @@ namespace HyRsn
                 ];
             internal static String Lint(String Input)
             {
-                if (String.IsNullOrWhiteSpace(Input)) return V.SEP;
+                if (V.SNS(Input)) return V.SEP;
                 MarkdownDocument MD = Markdown.Parse(Input, V.MDPL);
                 using StringWriter SW = new();
                 NormalizeOptions NO = new() {
@@ -32,5 +32,5 @@ namespace HyRsn
                 return Output.TrimEnd() + V.ENL;
             }
         }
-    }
+    //}
 }
