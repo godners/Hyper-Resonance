@@ -9,7 +9,7 @@ namespace HyRsn
         private static void PrepareHistory(AIConfig AI, String Input)
         {
             if (AI.History.Count == 0) AI.History.Add(RoleMessage);
-            AI.History.Add(new AIMessage("user", Input));
+            AI.AddUser(Input);
         }
         private static HttpClient NewHC(AIConfig AI)
         {
@@ -20,12 +20,15 @@ namespace HyRsn
         private static String AIKey(AIConfig AI) => $"Bearer {AI.ApiKey}".Trim();
         private static StringContent ReqString(AIConfig AI) => new(JsonSerializer.Serialize(
             new { model = AI.Model, messages = AI.History, stream = true }), V.UTF8, V.HAJ);
+
         private static HttpRequestMessage NewHReqM(AIConfig AI)
         {
             String URL = AI.EndPoint.TrimEnd('/') + "/chat/completions";
             HttpRequestMessage HRM = new(V.HMP, URL);
             HRM.Headers.Add(V.ACP, V.HAJ);
             HRM.Headers.Add(V.AUTH, AIKey(AI));
+            HRM.Headers.Add("HTTP-Referer", "https://github/godners/HyRsn");
+            HRM.Headers.Add("X-Title", "Hyper-Resonance Client");
             HRM.Content = ReqString(AI);
             return HRM;
         }
@@ -51,9 +54,11 @@ namespace HyRsn
             }
             return SB.ToString();
         }
-        internal static async Task Execute(AIConfig AI, RichTextBox T, String Input, AIMessage Cache)
+        internal static async Task Execute(AIConfig AI, RichTextBox T, String Input, ProgressBar PB)
         {
-            PrepareHistory(AI, Input); T.Clear();
+            if (!String.IsNullOrWhiteSpace(T.Text)) AI.AddAssistant(T.Text.Trim());
+            PrepareHistory(AI, Input);
+            T.Clear();
             try
             {
                 using HttpClient HC = NewHC(AI);
@@ -61,7 +66,7 @@ namespace HyRsn
                 using HttpResponseMessage HRspM = await HC.SendAsync(HReqM, V.HCORHR);
                 HRspM.EnsureSuccessStatusCode();
                 String FullResp = await MatchStream(HRspM, T);
-                Cache = new("assistant", FullResp);
+                PB.Visible = false;
             }
             catch (Exception EX) { T.AppendText($"\r\n[ERROR] ${EX.Message}"); }
         }

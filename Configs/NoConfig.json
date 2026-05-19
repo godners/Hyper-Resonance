@@ -1,0 +1,13 @@
+﻿{
+    "Provider": "NO Config",
+    "ApiKey": "NO Config",
+    "EndPoint": "NO Config",
+    "Model": "NO Config",
+    "Proxy": "",
+    "History": [],
+    "Style": {
+        "Name": "NO Config",
+        "Fore": "#FFFFFF",
+        "Back": "#006400"
+    }
+}

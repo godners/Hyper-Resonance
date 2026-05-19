@@ -2,12 +2,12 @@
     "Provider": "OpenRouter",
     "ApiKey": "YOUR_OPENROUTER_API_KEY",
     "EndPoint": "https://openrouter.ai/api/v1",
-    "Model": "deepseek/deepseek-v4-flash:free",
-    "Proxy": "",
+    "Model": "openrouter/owl-alpha",
+    "Proxy": "http://10.80.239.10:8080",
     "History": [],
     "Style": {
-        "Name": "OR DeepSeek",
-        "Fore": "#00BFFF",
-        "Back": "#F8F8FF"
+        "Name": "OR Owl Alpha",
+        "Fore": "#EFEFEF",
+        "Back": "#000000"
     }
 }

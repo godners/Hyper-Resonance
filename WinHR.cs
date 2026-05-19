@@ -1,13 +1,10 @@
 #pragma warning disable IDE1006 // ÃüÃûÑùÊ½
-using System.Diagnostics;
-using System.Text.Json;
-
 namespace HyRsn
 {
     internal partial class WinHR : Form
     {
 
-        //private static readonly String Desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
         internal WinHR()
         {
             InitializeComponent();
@@ -15,8 +12,9 @@ namespace HyRsn
             TFocus = TInput;
             InitializeMDView();
             InitializeConfigs();
-            InitializeCacheMessages();
+            InitializePOutputs();
             InitializeTOutputs();
+            InitializeBContents();
             InitializeTasks();
 
         }
@@ -107,8 +105,10 @@ namespace HyRsn
                     String ID = ControlID(O); Button B = (Button)O;
                     AIConfigs[ID] = new AIConfig(OFD.FileName);
                     B.Text = AIConfigs[ID].Name;
-                    B.ForeColor = AIConfigs[ID].Fore;
-                    B.BackColor = AIConfigs[ID].Back;
+                    B.ForeColor = AIConfigs[ID].Enabled ? Color.Red : Color.Black;
+                    B.BackColor = AIConfigs[ID].Enabled ? Color.Yellow : Color.LightSteelBlue;
+
+
                 }
                 catch (Exception EX)
                 { MessageBox.Show($"{EX.Message}\r\n{EX.StackTrace}", "[AIConfig] Error!", V.MBBO, V.MBIE); }
@@ -116,26 +116,44 @@ namespace HyRsn
         }
         private Dictionary<String, RichTextBox> TOutputs = [];
         private void InitializeTOutputs() => TOutputs = new()
-        { { "0", TOutput0 },{ "1",TOutput1 }, { "2", TOutput2 } };
+        { { "0", TOutput0 },{ "1", TOutput1 }, { "2", TOutput2 } };
 
-        private Dictionary<String, Task?> Tasks = [];
+        private Dictionary<String, Task> Tasks = [];
         private void InitializeTasks() => Tasks = new()
         {{ "0", Completion.Empty() }, {"1", Completion.Empty() }, { "2", Completion.Empty() }};
 
-        private Dictionary<String, AIMessage> CacheMessages = [];
-        private void InitializeCacheMessages() => CacheMessages = new()
-        { { "0", new("assistant", V.SEP) },{ "1",new("assistant", V.SEP) }, { "2", new("assistant", V.SEP) } };
+        private Dictionary<String, ProgressBar> POutputs = [];
+        private void InitializePOutputs() => POutputs = new()
+        { { "0", POutput0 },{ "1", POutput1 }, { "2", POutput2 } };
+
+        private Dictionary<String, Button> BContents = [];
+        private void InitializeBContents() => BContents = new()
+        { { "0", BContent0 },{ "1", BContent1 }, { "2", BContent2 } };
+
+        private Boolean CompareOutput()
+        {
+            String T0 = TOutput0.Text.Trim();
+            String T1 = TOutput1.Text.Trim();
+            String T2 = TOutput2.Text.Trim();
+            return T0 != T1 && T1 != T2 && T2 != T0;
+        }
         private async void BCompletion_Click(Object O, EventArgs E)
         {
+            if (CompareOutput())
+            {
+                MessageBox.Show("Contents via Output Box is Difference!", "Contents Error!", V.MBBO, V.MBIE);
+                return;
+            }
+
             String Inputs = TInput.Text.Trim();
             if (V.SNS(Inputs)) return;
             ((Button)O).Enabled = false;
 
             foreach (KeyValuePair<String, AIConfig> AI in AIConfigs)
             {
-                Tasks[AI.Key] = AI.Value.Enabled ?
-                    Completion.Execute(AI.Value, TOutputs[AI.Key], Inputs, CacheMessages[AI.Key]) :
-                    Completion.Empty();
+                POutputs[AI.Key].Visible = AI.Value.Enabled;
+                if (!AI.Value.Enabled) Tasks[AI.Key] = Completion.Empty();
+                else Tasks[AI.Key] = Completion.Execute(AI.Value, TOutputs[AI.Key], Inputs, POutputs[AI.Key]);
             }
             await Task.WhenAll(Tasks.Values!);
             if (TFocus != null && TFocus.Name.StartsWith("TOutput")) UpdateView(TFocus.Text);
@@ -160,6 +178,16 @@ namespace HyRsn
             }
 
             ShowRole = !ShowRole;
+        }
+
+        private void BContent_Click(Object O, EventArgs E)
+        {
+            String ID = ControlID(O);
+            foreach (KeyValuePair<String, Button> B in BContents)
+            {
+                if (B.Key == ID) continue;
+                else TOutputs[B.Key].Text = TOutputs[ID].Text;
+            }
         }
     }
 }

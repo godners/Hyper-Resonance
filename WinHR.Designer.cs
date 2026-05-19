@@ -44,11 +44,17 @@
             MDView = new Microsoft.Web.WebView2.WinForms.WebView2();
             TOutput0 = new RichTextBox();
             TlpR1 = new TableLayoutPanel();
+            BContent2 = new Button();
+            BContent1 = new Button();
+            POutput2 = new ProgressBar();
+            POutput1 = new ProgressBar();
             BSelect2 = new Button();
             BSelect1 = new Button();
             BSaveView = new Button();
             LViewSource = new Label();
             BSelect0 = new Button();
+            POutput0 = new ProgressBar();
+            BContent0 = new Button();
             TlpMain.SuspendLayout();
             TlpR0.SuspendLayout();
             TlpR0C1.SuspendLayout();
@@ -164,7 +170,7 @@
             BCompletion.Name = "BCompletion";
             BCompletion.Size = new Size(109, 33);
             BCompletion.TabIndex = 4;
-            BCompletion.Text = "&Completions";
+            BCompletion.Text = "C&ompletions";
             BCompletion.UseVisualStyleBackColor = true;
             BCompletion.Click += BCompletion_Click;
             // 
@@ -322,11 +328,17 @@
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             TlpR1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            TlpR1.Controls.Add(BContent2, 4, 1);
+            TlpR1.Controls.Add(BContent1, 2, 1);
+            TlpR1.Controls.Add(POutput2, 5, 0);
+            TlpR1.Controls.Add(POutput1, 3, 0);
             TlpR1.Controls.Add(BSelect2, 4, 0);
             TlpR1.Controls.Add(BSelect1, 2, 0);
             TlpR1.Controls.Add(BSaveView, 8, 0);
             TlpR1.Controls.Add(LViewSource, 9, 1);
             TlpR1.Controls.Add(BSelect0, 0, 0);
+            TlpR1.Controls.Add(POutput0, 1, 0);
+            TlpR1.Controls.Add(BContent0, 0, 1);
             TlpR1.Dock = DockStyle.Fill;
             TlpR1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TlpR1.Location = new Point(1, 216);
@@ -337,6 +349,66 @@
             TlpR1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             TlpR1.Size = new Size(1582, 42);
             TlpR1.TabIndex = 2;
+            // 
+            // BContent2
+            // 
+            BContent2.BackColor = Color.Green;
+            BContent2.Dock = DockStyle.Fill;
+            BContent2.FlatStyle = FlatStyle.Popup;
+            BContent2.ForeColor = Color.White;
+            BContent2.Location = new Point(633, 21);
+            BContent2.Margin = new Padding(0);
+            BContent2.Name = "BContent2";
+            BContent2.Size = new Size(157, 20);
+            BContent2.TabIndex = 16;
+            BContent2.Text = "&C Uses for Contents";
+            BContent2.UseVisualStyleBackColor = false;
+            BContent2.Click += BContent_Click;
+            // 
+            // BContent1
+            // 
+            BContent1.BackColor = Color.Green;
+            BContent1.Dock = DockStyle.Fill;
+            BContent1.FlatStyle = FlatStyle.Popup;
+            BContent1.ForeColor = Color.White;
+            BContent1.Location = new Point(317, 21);
+            BContent1.Margin = new Padding(0);
+            BContent1.Name = "BContent1";
+            BContent1.Size = new Size(157, 20);
+            BContent1.TabIndex = 15;
+            BContent1.Text = "&B Uses for Contents";
+            BContent1.UseVisualStyleBackColor = false;
+            BContent1.Click += BContent_Click;
+            // 
+            // POutput2
+            // 
+            POutput2.Dock = DockStyle.Fill;
+            POutput2.ForeColor = Color.SkyBlue;
+            POutput2.Location = new Point(791, 1);
+            POutput2.Margin = new Padding(0);
+            POutput2.MarqueeAnimationSpeed = 30;
+            POutput2.Name = "POutput2";
+            POutput2.Size = new Size(157, 19);
+            POutput2.Step = 30;
+            POutput2.Style = ProgressBarStyle.Marquee;
+            POutput2.TabIndex = 13;
+            POutput2.Value = 30;
+            POutput2.Visible = false;
+            // 
+            // POutput1
+            // 
+            POutput1.Dock = DockStyle.Fill;
+            POutput1.ForeColor = Color.SkyBlue;
+            POutput1.Location = new Point(475, 1);
+            POutput1.Margin = new Padding(0);
+            POutput1.MarqueeAnimationSpeed = 30;
+            POutput1.Name = "POutput1";
+            POutput1.Size = new Size(157, 19);
+            POutput1.Step = 30;
+            POutput1.Style = ProgressBarStyle.Marquee;
+            POutput1.TabIndex = 12;
+            POutput1.Value = 30;
+            POutput1.Visible = false;
             // 
             // BSelect2
             // 
@@ -410,6 +482,36 @@
             BSelect0.UseVisualStyleBackColor = false;
             BSelect0.Click += BSelect_Click;
             // 
+            // POutput0
+            // 
+            POutput0.Dock = DockStyle.Fill;
+            POutput0.ForeColor = Color.SkyBlue;
+            POutput0.Location = new Point(159, 1);
+            POutput0.Margin = new Padding(0);
+            POutput0.MarqueeAnimationSpeed = 30;
+            POutput0.Name = "POutput0";
+            POutput0.Size = new Size(157, 19);
+            POutput0.Step = 30;
+            POutput0.Style = ProgressBarStyle.Marquee;
+            POutput0.TabIndex = 11;
+            POutput0.Value = 30;
+            POutput0.Visible = false;
+            // 
+            // BContent0
+            // 
+            BContent0.BackColor = Color.Green;
+            BContent0.Dock = DockStyle.Fill;
+            BContent0.FlatStyle = FlatStyle.Popup;
+            BContent0.ForeColor = Color.White;
+            BContent0.Location = new Point(1, 21);
+            BContent0.Margin = new Padding(0);
+            BContent0.Name = "BContent0";
+            BContent0.Size = new Size(157, 20);
+            BContent0.TabIndex = 14;
+            BContent0.Text = "&A Uses for Contents";
+            BContent0.UseVisualStyleBackColor = false;
+            BContent0.Click += BContent_Click;
+            // 
             // WinHR
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -461,5 +563,11 @@
         private Button BSelect1;
         private Button BCompletion;
         private Button BInputRole;
+        private ProgressBar POutput0;
+        private ProgressBar POutput2;
+        private ProgressBar POutput1;
+        private Button BContent2;
+        private Button BContent1;
+        private Button BContent0;
     }
 }

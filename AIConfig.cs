@@ -17,6 +17,9 @@ namespace HyRsn
         internal Color Back => Style.Back;
         internal Boolean Enabled => Name != "NO Config";
         internal AIConfig() { }
+        internal void AddHistory(AIMessage AIM) => History.Add(AIM);
+        internal void AddAssistant(String S) => History.Add(new("assistant", S));
+        internal void AddUser(String S) => History.Add(new("user", S));
         private static String JsonGetString(JsonElement Parent, String Name) =>
             Parent.TryGetProperty(Name, out JsonElement JE) ? JE.GetString() ?? V.SEP : V.SEP;
         internal AIConfig(String Path)

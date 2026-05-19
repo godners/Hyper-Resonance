@@ -2,11 +2,11 @@
     "Provider": "OpenRouter",
     "ApiKey": "YOUR_OPENROUTER_API_KEY",
     "EndPoint": "https://openrouter.ai/api/v1",
-    "Model": "inclusionAI:ring-2.6-1t:free",
-    "Proxy": "",
+    "Model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "Proxy": "http://10.80.239.10:8080",
     "History": [],
     "Style": {
-        "Name": "Ring Style",
+        "Name": "OR nVidia Nemotron",
         "Fore": "#FFD700",
         "Back": "#2F4F4F"
     }
