@@ -27,9 +27,10 @@ namespace HyRsn
             HttpRequestMessage HRM = new(V.HMP, URL);
             HRM.Headers.Add(V.ACP, V.HAJ);
             HRM.Headers.Add(V.AUTH, AIKey(AI));
-            HRM.Headers.Add("HTTP-Referer", "https://github/godners/HyRsn");
-            HRM.Headers.Add("X-Title", "Hyper-Resonance Client");
+            HRM.Headers.Add("HTTP-Referer", V.RepoUrl);
+            HRM.Headers.Add("X-Title", V.ClientName);
             HRM.Content = ReqString(AI);
+
             return HRM;
         }
         private static async Task<String> MatchStream(HttpResponseMessage HRM, RichTextBox T)
@@ -56,9 +57,8 @@ namespace HyRsn
         }
         internal static async Task Execute(AIConfig AI, RichTextBox T, String Input, ProgressBar PB)
         {
-            if (!String.IsNullOrWhiteSpace(T.Text)) AI.AddAssistant(T.Text.Trim());
-            PrepareHistory(AI, Input);
-            T.Clear();
+            if (!V.SNS(T.Text)) AI.AddAssistant(T.Text.Trim());
+            PrepareHistory(AI, Input); T.Clear();
             try
             {
                 using HttpClient HC = NewHC(AI);

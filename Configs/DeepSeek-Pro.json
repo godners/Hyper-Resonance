@@ -1,6 +1,6 @@
 ﻿{
     "Provider": "DeepSeek",
-    "ApiKey": "YOUR_GOOGLE_API_KEY",
+    "ApiKey": "",
     "EndPoint": "https://api.deepseek.com",
     "Model": "deepseek-v4-pro",
     "Proxy": "http://10.80.239.10:8080/",

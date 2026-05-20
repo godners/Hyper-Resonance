@@ -79,5 +79,25 @@ namespace HyRsn.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] Style {
+            get {
+                object obj = ResourceManager.GetObject("Style", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] View {
+            get {
+                object obj = ResourceManager.GetObject("View", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

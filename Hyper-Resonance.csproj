@@ -13,6 +13,8 @@
     <Authors>RenTY Code</Authors>
     <PackageIcon>HyRsn.jpg</PackageIcon>
     <NoWarn>$(NoWarn);MSB3277</NoWarn>
+    <PackageProjectUrl>https://github/godners/HyRsn</PackageProjectUrl>
+    <RepositoryUrl>https://github/godners/HyRsn</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

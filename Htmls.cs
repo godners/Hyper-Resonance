@@ -11,13 +11,13 @@ namespace HyRsn
         {
             String FName = F.FontFamily.Name; String FSize = F.Size.ToString();
             if (FName.Contains(' ')) FName = $"'{FName}'";
-            CssCode = V.CssTemplate.Replace("__FNAME__", FName).Replace("__FSIZE__", FSize);
+            CssCode = V.StyleFrame.Replace("__FNAME__", FName).Replace("__FSIZE__", FSize);
         }
         internal static String Code(String MDCode) =>
-            V.HtmlTemplate.Replace("__CssCode__", CssCode).Replace("__HtmlCode__", Markdown.ToHtml(MDCode, V.MDPL));
-        internal static async Task<String> ToHtml(WebView2 V)
+            V.ViewFrame.Replace("__CssCode__", CssCode).Replace("__HtmlCode__", Markdown.ToHtml(MDCode, V.MDPL));
+        internal static async Task<String> ToHtml(WebView2 W)
         {
-            String RawHtml = await V.CoreWebView2.ExecuteScriptAsync("document.documentElement.outerHTML");
+            String RawHtml = await W.CoreWebView2.ExecuteScriptAsync(V.JsAllHtml);
             return JsonSerializer.Deserialize<String>(RawHtml) ?? String.Empty;
         }
         internal static void SaveMsg(String FileName, RichTextBox T, String Ex = "Null") =>

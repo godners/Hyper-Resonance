@@ -16,7 +16,6 @@ namespace HyRsn
             InitializeTOutputs();
             InitializeBContents();
             InitializeTasks();
-
         }
         private async void InitializeMDView()
         {
@@ -69,8 +68,7 @@ namespace HyRsn
         {
             using SaveFileDialog SFD = new() {
                 InitialDirectory = V.Desktop, DefaultExt = "html",
-                Filter = "HTML Files (*.html)|*.html|All Files (*.*)|*.*",
-                Title = $"Save {TFocus.Tag} As HTML"
+                Filter = V.SFilter, Title = $"Save {TFocus.Tag} As HTML"
             };
             if (SFD.ShowDialog() == V.DROK)
             {
@@ -93,8 +91,7 @@ namespace HyRsn
         private void BSelect_Click(Object O, EventArgs E)
         {
             using OpenFileDialog OFD = new () {
-                InitialDirectory = V.Desktop, DefaultExt = "json",
-                Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*",
+                InitialDirectory = V.Desktop, DefaultExt = "json", Filter = V.OFilter,
                 Title = $"Select Model Configure to [{((Control)O).Tag}] As JSON"
             };
             OFD.InitialDirectory = @"D:\MyRepo\Hyper-Resonance\Configs";
@@ -107,8 +104,6 @@ namespace HyRsn
                     B.Text = AIConfigs[ID].Name;
                     B.ForeColor = AIConfigs[ID].Enabled ? Color.Red : Color.Black;
                     B.BackColor = AIConfigs[ID].Enabled ? Color.Yellow : Color.LightSteelBlue;
-
-
                 }
                 catch (Exception EX)
                 { MessageBox.Show($"{EX.Message}\r\n{EX.StackTrace}", "[AIConfig] Error!", V.MBBO, V.MBIE); }

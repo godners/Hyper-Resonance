@@ -1,6 +1,6 @@
 ﻿{
     "Provider": "OpenRouter",
-    "ApiKey": "YOUR_OPENROUTER_API_KEY",
+    "ApiKey": "",
     "EndPoint": "https://openrouter.ai/api/v1",
     "Model": "openai/gpt-oss-120b:free",
     "Proxy": "http://10.80.239.10:8080",
