@@ -13,7 +13,7 @@ jobs:
   daily-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: godners/Shared-Actions/daily-release@main
+      - uses: godners/Shared_Actions/daily-release@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
