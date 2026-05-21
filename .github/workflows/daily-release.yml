@@ -16,4 +16,5 @@ jobs:
       - uses: godners/Shared_Actions/periodic-release@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          Checkout: true
     
