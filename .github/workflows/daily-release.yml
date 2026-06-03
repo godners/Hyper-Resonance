@@ -17,5 +17,7 @@ jobs:
         uses: Godners-Code/auto-release-action@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          Checkout: true
+      - name: checkout test
+        shell: bash
+        run: cat ./LICENSE.txt
     
